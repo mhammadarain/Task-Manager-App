@@ -12,7 +12,6 @@ class DatabaseService {
       "title": title,
       "description": description,
       "completed": false,
-      //"createAt": FieldValue.serverTimestamp()
     });
   }
 
@@ -55,7 +54,6 @@ class DatabaseService {
         title: doc["title"] ?? "",
         description: doc["description"] ?? "",
         completed: doc["completed"] ?? false,
-        //timestamp: doc["createAt"] ?? Timestamp.now(),
       );
     }).toList();
   }

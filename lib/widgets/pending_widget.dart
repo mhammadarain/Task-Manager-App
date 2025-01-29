@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:task_manager/services/database_service.dart';
@@ -47,7 +46,6 @@ class _PendingWidgetState extends State<PendingWidget> {
           itemCount: tasks.length,
           itemBuilder: (context, index) {
             Task task = tasks[index];
-           // final DateTime dt = task.timestamp.toDate();
             return Container(
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -99,10 +97,6 @@ class _PendingWidgetState extends State<PendingWidget> {
                     task.description,
                     style: const TextStyle(fontWeight: FontWeight.w500),
                   ),
-                  // trailing: Text(
-                  //   '${dt.day}/${dt.month}/${dt.year}',
-                  //   style: const TextStyle(fontWeight: FontWeight.bold),
-                  // ),
                 ),
               ),
             );
