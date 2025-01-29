@@ -81,7 +81,7 @@ class _PendingWidgetState extends State<PendingWidget> {
                           _showTaskDialog(context, task: task);
                         }),
                     SlidableAction(
-                        backgroundColor: Colors.green,
+                        backgroundColor: Colors.redAccent,
                         foregroundColor: Colors.white,
                         icon: Icons.delete,
                         label: "Delete",

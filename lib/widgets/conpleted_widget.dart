@@ -36,7 +36,7 @@ class _CompletedWidgetState extends State<CompletedWidget> {
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return const Center(
             child: Text(
-              'No pending tasks.',
+              'No Completed tasks yet.',
               style: TextStyle(color: Colors.white),
             ),
           );

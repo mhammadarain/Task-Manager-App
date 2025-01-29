@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:task_manager/login_screen.dart';
 import 'package:task_manager/model/task_model.dart';
+import 'package:task_manager/provider/theme_provider.dart';
 import 'package:task_manager/services/auth_service.dart';
 import 'package:task_manager/services/database_service.dart';
 import 'package:task_manager/widgets/conpleted_widget.dart';
@@ -25,13 +27,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: const Color(0xFF1d2630),
+      //backgroundColor: const Color(0xFF1d2630),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1d2630),
-        foregroundColor: Colors.white,
-        title: const Text("Task"),
+        title: const Text("Task Manager "),
         actions: [
+          IconButton(
+            icon: Icon(themeProvider.themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
+            onPressed: () {
+              themeProvider.toggleTheme();
+            },
+          ),
           IconButton(
             onPressed: () async {
               await AuthService().signOut();
@@ -64,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 50,
                     width: MediaQuery.of(context).size.width / 2.2,
                     decoration: BoxDecoration(
-                      color: _buttonIndex == 0 ? Colors.indigo : Colors.white,
+                      color: _buttonIndex == 0 ? Color(0xFF008891) : Colors.white70,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -91,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 50,
                     width: MediaQuery.of(context).size.width / 2.2,
                     decoration: BoxDecoration(
-                      color: _buttonIndex == 1 ? Colors.indigo : Colors.white,
+                      color: _buttonIndex == 1 ? Color(0xFF008891) : Colors.white70,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
@@ -165,11 +172,11 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text("Cancel"),
+              child: const Text("Cancel",style: TextStyle(color: Color(0xFF1E272E)),),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.indigo,
+                backgroundColor: Color(0xFF008891),
                 foregroundColor: Colors.white,
               ),
               onPressed: () async {
